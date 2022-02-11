@@ -1,11 +1,10 @@
-import {getbyId, people} from './db'
+import {getbyId, getMovie, getMovies, people} from './db'
 
 const resolvers = {
 	Query:{
-		people:()=>people,
-		person:(_, args)=> {
-			console.log(args) // {id:1}
-			return getbyId(args.id)
+		movies:()=> getMovies(),
+		movie:(_, args)=> {
+			return getMovie(args.id)
 		}
 	}
 }
